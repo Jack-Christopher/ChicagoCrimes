@@ -31,3 +31,11 @@ class Preprocessing:
         plt.ylabel("Recuento de valores perdidos", fontdict={'fontsize': 10})
         # plt.show()
         return plt
+
+    def describe(self):
+        data = self.crimesDf.describe()
+        data = data.to_dict('index')
+
+        # print(data)
+
+        return data

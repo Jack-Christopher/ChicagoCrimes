@@ -17,19 +17,47 @@
         <h1 class="display-4" align="center"> Welcome to Chicago Crime Visualization </h1>
     </div>
 
-        <div id="text">
-            Preprocesamiento del dataset
-        </div>
+    <div class="container">
+        <h2 class="display-4" align="center"> Preprocesamiento del dataset </h2>
 
-        <!-- show image from static/img with 'name' variable from jinja2 -->
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <img src="{{ url_for('static',filename='img/'+name) }}" class="img-fluid" alt="Responsive image">
+        <!-- print dataframe.to_dict -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <!-- ID	Beat	District	Ward	Community Area	X Coordinate	Y Coordinate	Year	Latitude	Longitude -->
+                    <th scope="col"> - </th>
+                    <th scope="col"> ID </th>
+                    <th scope="col"> Beat </th>
+                    <th scope="col"> District </th>
+                    <th scope="col"> Ward </th>
+                    <th scope="col"> Community Area </th>
+                    <th scope="col"> X Coordinate </th>
+                    <th scope="col"> Y Coordinate </th>
+                    <th scope="col"> Year </th>
+                    <th scope="col"> Latitude </th>
+                    <th scope="col"> Longitude </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for key, value in data['desc'].items() %}
+                    <tr>
+                        <td scope="row"> {{ key }} </td>
+                        {% for a, b in value.items() %}
+                            <td> {{ b }} </td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
-                </div>
+    
+        <div class="row">
+            <div class="col-md-12">
+                <img src="{{ url_for('static',filename='img/'+data['name']) }}" class="img-fluid" alt="Responsive image">
+
             </div>
         </div>
+    </div>
 {% endblock %}
 
 

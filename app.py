@@ -7,11 +7,15 @@ app.secret_key = 'very-secret-key'
 
 @app.route('/')
 def index():
+    data = {}
     p = pre.Preprocessing()
+    data['desc'] = p.describe()
+
     plt = p.get_missing_values_plot()
     plt.savefig('static/img/missing_values.jpg')
+    data['name'] = "missing_values.jpg"
 
-    return render_template("index.html", name="missing_values.jpg")
+    return render_template("index.html", data=data)
 
 @app.route('/favicon.ico') 
 def favicon(): 
