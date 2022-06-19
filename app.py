@@ -9,9 +9,9 @@ app.secret_key = 'very-secret-key'
 def index():
     p = pre.Preprocessing()
     plt = p.get_missing_values_plot()
-    plt.savefig('static/img/missing_values.png')
+    plt.savefig('static/img/missing_values.jpg')
 
-    return render_template("index.html", name="missing_values.png")
+    return render_template("index.html", name="missing_values.jpg")
 
 @app.route('/favicon.ico') 
 def favicon(): 
