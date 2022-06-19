@@ -20,6 +20,16 @@
         <div id="text">
             Preprocesamiento del dataset
         </div>
+
+        <!-- show image from static/img with 'name' variable from jinja2 -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <img src="{{ url_for('static',filename='img/'+name) }}" class="img-fluid" alt="Responsive image">
+
+                </div>
+            </div>
+        </div>
 {% endblock %}
 
 
